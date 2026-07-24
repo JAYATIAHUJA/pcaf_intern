@@ -1,0 +1,13 @@
+Loan ID,Asset Class,Borrower Name,Loan Amount,Outstanding Amount,Activity Period
+LN-1001,Business Loans,Acme Traders,250000,175000,2026-07
+LN-1002,Commercial Real Estate,Northstar Holdings,1250000,980000,2026-07
+LN-1003,Equipment Finance,Blue River Manufacturing,450000,315500,2026-07
+LN-1004,Invoice Financing,Garcia Ruiz Co,80000,42000,2026-07
+LN-1005,Working Capital,Patel Logistics,150000,150000,2026-07
+LN-1006,Business Loans,Taylor Premium Services,325000,0,2026-07
+LN-1007,Commercial Real Estate,Sunrise Medical Group,2100000,1987500,2026-07
+LN-1008,Equipment Finance,Metro Kitchens LLC,95000,60250,2026-07
+LN-1009,Invoice Financing,Evergreen Retail,120000,87500,2026-07
+LN-1010,Working Capital,Cedar Point Construction,675000,540000,2026-07
+LN-1011,Business Loans,Atlas Print Works,50000,12500,2026-07
+LN-1012,Commercial Real Estate,Harbor View Properties,3750000,3420000,2026-07

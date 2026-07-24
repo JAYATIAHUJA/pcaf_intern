@@ -1,0 +1,11 @@
+Loan ID,Asset Class,Borrower Name,Loan Amount,Outstanding Amount,Activity Period
+LN-2001,Business Loans,Apex Components,100000,75000,2026-07
+LN-2002,Business Loans,Greenfield Supplies,185000,142000,2026-07
+LN-2003,Business Loans,Prime Retail Mart,95000,61000,2026-07
+LN-2004,Business Loans,Urban Foods Pvt Ltd,220000,198000,2026-07
+LN-2005,Motor Vehicle,Metro Tools Company,310000,265000,2026-07
+LN-2006,Motor Vehicle,Silverline Engineering,480000,392500,2026-07
+LN-2007,Commercial Real Estate,Oak Street Properties,1250000,1100000,2026-07
+LN-2008,Commercial Real Estate,Harbor Point Realty,2100000,1865000,2026-07
+LN-2009,Mortgage,Bright Star Exports,135000,92000,2026-07
+LN-2010,Mortgage,North Coast Traders,76000,45500,2026-07
