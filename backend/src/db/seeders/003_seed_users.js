@@ -3,11 +3,12 @@ export async function seed(client) {
   if (parseInt(usersCheck.rows[0].count) === 0) {
     console.log('Seeding initial users...');
     const seededUsers = [
-      { id: 1, name: 'Alice Smith', email: 'alice@example.com', roleId: 1, status: 'active' },
+      { id: 1, name: 'jayati', email: 'jayati@pcaf.local', roleId: 1, status: 'active' },
       { id: 2, name: 'Bob Jones', email: 'bob@example.com', roleId: 2, status: 'inactive' },
       { id: 3, name: 'Charlie Brown', email: 'charlie@example.com', roleId: 3, status: 'pending' },
       { id: 4, name: 'Arjun Kapoor', email: 'a.kapoor@meridian.com', roleId: 1, status: 'active' },
-      { id: 5, name: 'Demo Analyst', email: 'analyst@bankorg.com', roleId: 3, status: 'active' }
+      { id: 5, name: 'Demo Analyst', email: 'analyst@bankorg.com', roleId: 3, status: 'active' },
+      { id: 6, name: 'jayati2', email: 'jayati2@pcaf.local', roleId: 4, status: 'active' }
     ];
 
     for (const u of seededUsers) {
@@ -20,3 +21,5 @@ export async function seed(client) {
     await client.query(`SELECT setval('users_id_seq', (SELECT MAX(id) FROM users))`);
   }
 }
+
+

@@ -6,6 +6,7 @@ import loanConfigRoutes from './loanConfigRoutes.js';
 import dataCaptureRoutes from './dataCaptureRoutes.js';
 import auditRoutes from './auditRoutes.js';
 import dashboardRoutes from './dashboardRoutes.js';
+import masterDataRoutes from './masterDataRoutes.js';
 
 export {
   authRoutes,
@@ -15,5 +16,8 @@ export {
   loanConfigRoutes,
   dataCaptureRoutes,
   auditRoutes,
-  dashboardRoutes
+  dashboardRoutes,
+  masterDataRoutes
 };
+
+

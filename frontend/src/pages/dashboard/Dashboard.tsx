@@ -7,7 +7,7 @@ import { useDashboard } from './hooks/useDashboard';
 import { IconLayoutDashboard } from '@tabler/icons-react';
 
 export default function Dashboard() {
-  const { data, loading, error } = useDashboard();
+  const { data, selectedYear, setSelectedYear, loading, error } = useDashboard();
 
   if (loading) {
     return (
@@ -42,9 +42,19 @@ export default function Dashboard() {
 
   return (
     <div style={{ padding: 24, background: "#f1f5f9", minHeight: "100%" }}>
-      <h2 style={{ fontSize: 20, fontWeight: 700, color: '#1E293B', margin: '0 0 18px', display: 'flex', alignItems: 'center', gap: 8 }}>
-        <IconLayoutDashboard size={22} style={{ color: '#2563eb' }} /> Dashboard
-      </h2>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 18 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: '#1E293B', margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <IconLayoutDashboard size={22} style={{ color: '#2563eb' }} /> Dashboard
+        </h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ fontSize: 12, color: '#64748b', fontWeight: 600 }}>Reporting Year</span>
+          <select className="field-select" value={selectedYear} onChange={e => setSelectedYear(e.target.value)} style={{ width: 120 }}>
+            {(data?.availableYears?.length ? data.availableYears : [selectedYear]).filter(Boolean).map(year => (
+              <option key={year} value={year}>FY {year}</option>
+            ))}
+          </select>
+        </div>
+      </div>
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14, marginBottom: 18 }}>
@@ -53,7 +63,7 @@ export default function Dashboard() {
           <div style={{ fontSize: 12, color: '#64748B', marginBottom: 6 }}>Total Financed Emission</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <span style={{ fontSize: 26, fontWeight: 700, color: '#1E293B' }}>{totalCapturedEmissions.toLocaleString()}</span>
-            <span style={{ fontSize: 11, background: '#EFF6FF', color: '#2563EB', padding: '2px 7px', borderRadius: 4, fontWeight: 600 }}>Live</span>
+            <span style={{ fontSize: 11, background: '#EFF6FF', color: '#2563EB', padding: '2px 7px', borderRadius: 4, fontWeight: 600 }}>{`FY ${data?.selectedYear || selectedYear}`}</span>
           </div>
           <div style={{ fontSize: 11, color: '#94A3B8' }}>tCO2e</div>
         </div>
@@ -373,3 +383,4 @@ export default function Dashboard() {
     </div>
   );
 }
+

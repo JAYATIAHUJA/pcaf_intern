@@ -9,6 +9,10 @@ interface BusinessLoanModalProps {
   onClose: () => void;
   onSubmit: () => void;
   sectors: string[];
+  companyTypes: string[];
+  borrowerTypes: string[];
+  countries: string[];
+  cities: string[];
 }
 
 export default function BusinessLoanModal({
@@ -18,7 +22,11 @@ export default function BusinessLoanModal({
   setFormData,
   onClose,
   onSubmit,
-  sectors
+  sectors,
+  companyTypes,
+  borrowerTypes,
+  countries,
+  cities
 }: BusinessLoanModalProps) {
   if (!isOpen) return null;
 
@@ -39,17 +47,17 @@ export default function BusinessLoanModal({
       <FormSection title="Loan Identification" />
       <FormRow cols={3}>
         <Input label="Loan ID" value={formData.loanId} onChange={setF('loanId')} required />
-        <Select label="Type of Company" value={formData.typeOfCompany} onChange={setF('typeOfCompany')} options={['Private', 'Listed', 'Cooperative']} required />
+        <Select label="Type of Company" value={formData.typeOfCompany} onChange={setF('typeOfCompany')} options={companyTypes.length ? companyTypes : ['Private', 'Listed', 'Cooperative']} required />
         <Select label="Sector" value={formData.sector} onChange={setF('sector')} options={sectors} />
       </FormRow>
       <FormRow cols={3}>
         <Input label="Borrower Name" value={formData.borrowerName} onChange={setF('borrowerName')} required />
-        <Select label="Borrower Type" value={formData.borrowerType} onChange={setF('borrowerType')} options={['Large Corporate', 'SME', 'MSME', 'Individual', 'Cooperative']} required />
+        <Select label="Borrower Type" value={formData.borrowerType} onChange={setF('borrowerType')} options={borrowerTypes.length ? borrowerTypes : ['Large Corporate', 'SME', 'MSME', 'Individual', 'Cooperative']} required />
         <Input label="Borrower Registration No." value={formData.borrowerRegNo} onChange={setF('borrowerRegNo')} />
       </FormRow>
       <FormRow cols={2}>
-        <Input label="City" value={formData.city} onChange={setF('city')} />
-        <Input label="Country" value={formData.country} onChange={setF('country')} />
+        <Select label="City" value={formData.city} onChange={setF('city')} options={cities.length ? cities : [formData.city || 'Nairobi']} />
+        <Select label="Country" value={formData.country} onChange={setF('country')} options={countries.length ? countries : ['Kenya']} />
       </FormRow>
       <FormSection title="Loan Terms" />
       <FormRow cols={4}>

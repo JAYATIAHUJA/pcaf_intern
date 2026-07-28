@@ -56,8 +56,17 @@ export const API_ROUTES = {
     GET_INTEGRATIONS: '/integrations',
     CONNECT_INTEGRATION: '/integrations/:id/connect'
   },
+  MASTER_DATA: {
+    BASE: '/v1/master-data',
+    GET_ALL: '/',
+    CREATE: '/',
+    UPDATE: '/:id',
+    DELETE: '/:id'
+  },
   AUDIT: {
     BASE: '/v1/audit-trail',
     GET: '/'
   }
 };
+
+

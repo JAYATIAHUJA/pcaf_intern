@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { apiJson, apiRequest } from '../../../lib/api';
 
-export type LoanTab = 'Business Loans' | 'Commercial Real Estate' | 'Motor Vehicle' | 'Mortgage';
-export const TABS: LoanTab[] = ['Business Loans', 'Commercial Real Estate', 'Motor Vehicle', 'Mortgage'];
+export type LoanTab = 'Master Table' | 'Business Loans' | 'Commercial Real Estate' | 'Motor Vehicle' | 'Mortgage';
+export const TABS: LoanTab[] = ['Master Table', 'Business Loans', 'Commercial Real Estate', 'Motor Vehicle', 'Mortgage'];
 export const SECTORS = [
   'Agriculture, Forestry & Fishing', 
   'Manufacturing', 
@@ -16,7 +16,7 @@ export const SECTORS = [
 ];
 
 export function useLoanConfiguration() {
-  const [tab, setTab] = useState<LoanTab>('Business Loans');
+  const [tab, setTab] = useState<LoanTab>('Master Table');
   const [modalOpen, setModalOpen] = useState(false);
   const [importModalOpen, setImportModalOpen] = useState(false);
   const [editId, setEditId] = useState<string | null>(null);
@@ -170,21 +170,25 @@ export function useLoanConfiguration() {
       });
   }
 
+  const matchesSearch = (r: any) => !search || String(r.borrowerName || '').toLowerCase().includes(search.toLowerCase()) || String(r.loanId || '').toLowerCase().includes(search.toLowerCase()) || String(r.assetClass || '').toLowerCase().includes(search.toLowerCase());
+
+  const filteredMaster = configs.filter(matchesSearch);
+
   const filteredBL = configs
     .filter(c => c.assetClass === 'Business Loans')
-    .filter(r => !search || r.borrowerName.toLowerCase().includes(search.toLowerCase()) || r.loanId.toLowerCase().includes(search.toLowerCase()));
+    .filter(matchesSearch);
 
   const filteredCRE = configs
     .filter(c => c.assetClass === 'Commercial Real Estate')
-    .filter(r => !search || r.borrowerName.toLowerCase().includes(search.toLowerCase()) || r.loanId.toLowerCase().includes(search.toLowerCase()));
+    .filter(matchesSearch);
 
   const filteredMV = configs
     .filter(c => c.assetClass === 'Motor Vehicle')
-    .filter(r => !search || r.borrowerName.toLowerCase().includes(search.toLowerCase()) || r.loanId.toLowerCase().includes(search.toLowerCase()));
+    .filter(matchesSearch);
 
   const filteredMG = configs
     .filter(c => c.assetClass === 'Mortgage')
-    .filter(r => !search || r.borrowerName.toLowerCase().includes(search.toLowerCase()) || r.loanId.toLowerCase().includes(search.toLowerCase()));
+    .filter(matchesSearch);
 
   return {
     tab,
@@ -205,9 +209,11 @@ export function useLoanConfiguration() {
     openAdd,
     handleSubmit,
     handleDelete,
+    filteredMaster,
     filteredBL,
     filteredCRE,
     filteredMV,
     filteredMG
   };
 }
+

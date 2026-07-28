@@ -10,7 +10,8 @@ import {
   loanConfigRoutes,
   dataCaptureRoutes,
   auditRoutes,
-  dashboardRoutes
+  dashboardRoutes,
+  masterDataRoutes
 } from './src/v1/routes/index.js';
 import { initializeDatabase } from './src/db/schemaManager.js';
 import { API_ROUTES } from './src/v1/constants.js';
@@ -39,6 +40,7 @@ app.use(API_ROUTES.LOAN_CONFIG.BASE, loanConfigRoutes);
 app.use(API_ROUTES.DATA_CAPTURE.BASE, dataCaptureRoutes);
 app.use(API_ROUTES.AUDIT.BASE, auditRoutes);
 app.use(API_ROUTES.DASHBOARD.BASE, dashboardRoutes);
+app.use(API_ROUTES.MASTER_DATA.BASE, masterDataRoutes);
 
 const PORT = process.env.PORT || 5000;
 
@@ -52,3 +54,5 @@ initializeDatabase()
     console.error('Failed to initialize database. Server shutdown.', err);
     process.exit(1);
   });
+
+

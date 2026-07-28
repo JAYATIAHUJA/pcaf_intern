@@ -41,6 +41,10 @@ export const ROUTE_PERMISSIONS = {
   [`PUT ${API_ROUTES.SETTINGS.BASE}${API_ROUTES.SETTINGS.UPDATE_NOTIF}`]: { module: 'Settings', action: 'edit' },
   [`GET ${API_ROUTES.SETTINGS.BASE}${API_ROUTES.SETTINGS.GET_INTEGRATIONS}`]: { module: 'Settings', action: 'view' },
   [`POST ${API_ROUTES.SETTINGS.BASE}${API_ROUTES.SETTINGS.CONNECT_INTEGRATION}`]: { module: 'Settings', action: 'edit' },
+  [`GET ${API_ROUTES.MASTER_DATA.BASE}${API_ROUTES.MASTER_DATA.GET_ALL}`.replace(/\/+$/, '')]: { module: 'Settings', action: 'view' },
+  [`POST ${API_ROUTES.MASTER_DATA.BASE}${API_ROUTES.MASTER_DATA.CREATE}`.replace(/\/+$/, '')]: { module: 'Settings', action: 'edit' },
+  [`PUT ${API_ROUTES.MASTER_DATA.BASE}${API_ROUTES.MASTER_DATA.UPDATE}`]: { module: 'Settings', action: 'edit' },
+  [`DELETE ${API_ROUTES.MASTER_DATA.BASE}${API_ROUTES.MASTER_DATA.DELETE}`]: { module: 'Settings', action: 'edit' },
 
   // Audit Trail
   [`GET ${API_ROUTES.AUDIT.BASE}${API_ROUTES.AUDIT.GET}`.replace(/\/+$/, '')]: { module: 'Audit Trail', action: 'view' }
